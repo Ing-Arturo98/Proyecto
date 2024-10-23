@@ -1,24 +1,47 @@
-/* Contenedor de la tarjeta (flip card) */
 .flip-card {
-    background-color: transparent;
-    perspective: 1000px; /* Crea un efecto de profundidad 3D */
+    background-color: transparent; /* Asegúrate de que no haya fondo que afecte la visualización */
+    width: 100%; /* Asegúrate de que la tarjeta ocupe el ancho completo del contenedor */
+    perspective: 1000px; /* Mantiene la perspectiva para el efecto de giro */
 }
 
-/* Parte interna de la tarjeta que se voltea */
 .flip-card-inner {
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+    position: relative; /* Necesario para el giro */
+    transform-style: preserve-3d; /* Mantiene la perspectiva en 3D */
+    transition: transform 0.6s; /* Transición suave al girar */
 }
 
-/* Hacer que la tarjeta se voltee al pasar el cursor */
 .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); /* Voltea 180 grados en el eje Y */
+    transform: rotateY(180deg); /* Gira la tarjeta al pasar el mouse */
 }
 
-/* Frente de la tarjeta (la imagen) */
-.flip-card-front, .flip-card-back {
-    position: absolute;
+.flip-card-front,
+.flip-card-back {
+    position: absolute; /* Necesario para superponer las caras */
     backface-visibility: hidden; /* Oculta el reverso cuando está al frente */
+}
+
+.flip-card-back {
+    transform: rotateY(180deg); /* Gira el reverso para que esté oculto inicialmente */
+}
+.espacio_garnde{
+    margin: 18rem 0rem;
+}
+
+@media (max-width: 768px) {
+    .flip-card-inner {
+        padding: 0em 0em 22em 0em; /* Espaciado entre las tarjetas en pantallas pequeñas */
+    }
+    .espacio_garnde{
+        margin: 0;
+    }
+}
+@media (max-width: 992px) {
+    .flip-card-inner {
+        padding: 0em 0em 22em 0em; /* Espaciado entre las tarjetas en pantallas pequeñas */
+    }
+    .espacio_garnde{
+        margin: 0;
+    }
 }
 
 /* Imagen */
